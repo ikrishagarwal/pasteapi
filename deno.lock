@@ -6,6 +6,8 @@
     "jsr:@std/assert@1": "1.0.11",
     "jsr:@std/bytes@1": "1.0.5",
     "jsr:@std/crypto@1": "1.0.4",
+    "jsr:@std/dotenv@*": "0.225.3",
+    "jsr:@std/dotenv@~0.225.3": "0.225.3",
     "jsr:@std/encoding@1": "1.0.7",
     "jsr:@std/encoding@^1.0.7": "1.0.7",
     "jsr:@std/http@1": "1.0.13",
@@ -46,6 +48,9 @@
     "@std/crypto@1.0.4": {
       "integrity": "cee245c453bd5366207f4d8aa25ea3e9c86cecad2be3fefcaa6cb17203d79340"
     },
+    "@std/dotenv@0.225.3": {
+      "integrity": "a95e5b812c27b0854c52acbae215856d9cce9d4bbf774d938c51d212711e8d4a"
+    },
     "@std/encoding@1.0.7": {
       "integrity": "f631247c1698fef289f2de9e2a33d571e46133b38d042905e3eac3715030a82d"
     },
@@ -69,7 +74,8 @@
   },
   "workspace": {
     "dependencies": [
-      "jsr:@oak/oak@^17.1.4"
+      "jsr:@oak/oak@^17.1.4",
+      "jsr:@std/dotenv@~0.225.3"
     ]
   }
 }

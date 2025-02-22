@@ -15,7 +15,7 @@ PasteAPI is an API based minimal replica of paste bin. It allows you to store an
 - `GET /pastes` - Lists all pastes
 - `GET /pastes/random` - Shows a random paste
 - `GET /pastes/:id` - Shows a paste with the given id
-- `POST /pastes` - Creates a new paste
+- `POST /paste` - Creates a new paste
 
 ## Tech Stack
 
