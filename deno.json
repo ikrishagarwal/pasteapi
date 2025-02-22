@@ -1,4 +1,8 @@
 {
+  "name": "@krish/pasteapi",
+  "version": "0.1.0",
+  "description": "An API based minimal replica of PasteBin",
+  "main": "src/main.ts",
   "tasks": {
     "dev": "deno run --allow-net --unstable-kv --allow-env --allow-read --allow-write --watch src/main.ts",
     "start": "deno run --allow-net --unstable-kv --allow-env --allow-read --allow-write src/main.ts"
