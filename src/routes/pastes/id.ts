@@ -1,5 +1,6 @@
 import { RouterContext } from "@oak/oak";
 import { readSinglePaste } from "../../lib/database.ts";
+import { log } from "../../lib/logger.ts";
 
 export const SinglePaste = async (
   context: RouterContext<"/pastes/:id", PasteParams>
@@ -15,7 +16,9 @@ export const SinglePaste = async (
       status: "success",
       paste,
     };
-  } catch {
+  } catch (error) {
+    log(error);
+
     context.response.status = 500;
     context.response.body = {
       status: "error",

@@ -1,6 +1,7 @@
 import { Context } from "@oak/oak";
 import { readPastes } from "../lib/database.ts";
 import { Paste } from "../lib/types.ts";
+import { log } from "../lib/logger.ts";
 
 export const Random = async (context: Context) => {
   try {
@@ -14,7 +15,9 @@ export const Random = async (context: Context) => {
       status: "success",
       paste: item,
     };
-  } catch {
+  } catch (error) {
+    log(error);
+
     context.response.status = 500;
     context.response.body = {
       status: "error",

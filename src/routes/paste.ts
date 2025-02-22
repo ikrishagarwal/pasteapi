@@ -1,5 +1,6 @@
 import { Context } from "@oak/oak";
 import { createPaste } from "../lib/database.ts";
+import { log } from "../lib/logger.ts";
 
 export const Paste = async (context: Context) => {
   try {
@@ -22,7 +23,9 @@ export const Paste = async (context: Context) => {
       status: "success",
       paste,
     };
-  } catch {
+  } catch (error) {
+    log(error);
+
     context.response.status = 500;
     context.response.body = {
       status: "error",
