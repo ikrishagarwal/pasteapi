@@ -8,15 +8,14 @@ export const SinglePaste = async (
     const id = context.params.id;
     const paste = await readSinglePaste(id);
 
-    if (paste !== null) {
-      context.response.status = 200;
-      context.response.body = {
-        status: "success",
-        paste,
-      };
-      return;
-    }
-  } finally {
+    if (paste === null) throw new Error("Failed to get paste");
+
+    context.response.status = 200;
+    context.response.body = {
+      status: "success",
+      paste,
+    };
+  } catch {
     context.response.status = 500;
     context.response.body = {
       status: "error",

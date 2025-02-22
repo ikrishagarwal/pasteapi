@@ -15,8 +15,7 @@ export const Pastes = async (context: Context) => {
       status: "success",
       pastes,
     };
-    return;
-  } finally {
+  } catch {
     context.response.status = 500;
     context.response.body = {
       status: "error",

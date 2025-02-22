@@ -15,16 +15,14 @@ export const Paste = async (context: Context) => {
     }
 
     const paste = await createPaste(content);
+    if (paste === null) throw new Error("Failed to create paste");
 
-    if (paste !== null) {
-      content.response.status = 201;
-      context.response.body = {
-        status: "success",
-        paste,
-      };
-      return;
-    }
-  } finally {
+    content.response.status = 201;
+    context.response.body = {
+      status: "success",
+      paste,
+    };
+  } catch {
     context.response.status = 500;
     context.response.body = {
       status: "error",

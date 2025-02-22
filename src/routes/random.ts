@@ -14,8 +14,7 @@ export const Random = async (context: Context) => {
       status: "success",
       paste: item,
     };
-    return;
-  } finally {
+  } catch {
     context.response.status = 500;
     context.response.body = {
       status: "error",
