@@ -19,19 +19,19 @@ PasteAPI is an API based minimal replica of paste bin. It allows you to store an
 
 ## Tech Stack
 
-- Node.js
-- Vercel
+- Deno
+- Deno Deploy
 - TypeScript
 - KV Database
+- Oak
 
 ## Getting Started
 
 1. Clone the repository
-2. Install dependencies using `yarn install`
+2. Install dependencies using `deno install`
 3. Create a `.env` file and add the following environment variables:
-   - `DATABASE_URL` - PostgreSQL database URL
-   - `PORT` - Port number for the server
-4. Run the server using `yarn dev`
+   - `DB_PATH`: path for a local KV database
+4. Run the server using `deno run dev`
 
 ## Authors
 
