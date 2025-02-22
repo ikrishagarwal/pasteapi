@@ -4,10 +4,11 @@ import { log } from "../lib/logger.ts";
 
 export const Paste = async (context: Context) => {
   try {
-    const content = (await context.request.body.json()).value.content;
+    const requestBody = await context.request.body.json();
+    const content = requestBody.content;
 
     if (content === null) {
-      content.response.status = 400;
+      context.response.status = 400;
       context.response.body = {
         status: "error",
         message: "Content is required",
@@ -18,7 +19,7 @@ export const Paste = async (context: Context) => {
     const paste = await createPaste(content);
     if (paste === null) throw new Error("Failed to create paste");
 
-    content.response.status = 201;
+    context.response.status = 201;
     context.response.body = {
       status: "success",
       paste,
