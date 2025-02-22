@@ -22,7 +22,7 @@ PasteAPI is an API based minimal replica of paste bin. It allows you to store an
 - Node.js
 - Vercel
 - TypeScript
-- PostgreSQL
+- KV Database
 
 ## Getting Started
 
