@@ -18,10 +18,14 @@ export const createPaste = async (content: string) => {
 };
 
 export const readPastes = async () => {
-  const entries = await Array.fromAsync(kv.list({ prefix: [] }));
-  const response = entries.map((item) => {
-    return (item.value as Paste).id;
-  });
+  const entries = await Array.fromAsync(
+    kv.list({ prefix: [DataBaseKeys.PASTES] })
+  );
 
-  return response || [];
+  return entries || [];
+};
+
+export const readSinglePaste = async (id: string) => {
+  const response = await kv.get([DataBaseKeys.PASTES, id]);
+  return response.value || null;
 };

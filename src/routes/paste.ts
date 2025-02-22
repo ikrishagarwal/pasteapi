@@ -2,20 +2,33 @@ import { Context } from "@oak/oak";
 import { createPaste } from "../lib/database.ts";
 
 export const Paste = async (context: Context) => {
-  const paste = await createPaste("hi there");
+  try {
+    const content = (await context.request.body.json()).value.content;
 
-  if (paste !== null) {
+    if (content === null) {
+      content.response.status = 400;
+      context.response.body = {
+        status: "error",
+        message: "Content is required",
+      };
+      return;
+    }
+
+    const paste = await createPaste(content);
+
+    if (paste !== null) {
+      content.response.status = 201;
+      context.response.body = {
+        status: "success",
+        paste,
+      };
+      return;
+    }
+  } finally {
+    context.response.status = 500;
     context.response.body = {
-      status: "success",
-      id: paste.id,
-      content: paste.content,
-      createdAt: paste.createdAt,
+      status: "error",
+      message: "Failed to create paste",
     };
-    return;
   }
-
-  context.response.body = {
-    status: "error",
-    message: "Failed to create paste",
-  };
 };

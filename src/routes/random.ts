@@ -2,25 +2,24 @@ import { Context } from "@oak/oak";
 import { readPastes } from "../lib/database.ts";
 import { Paste } from "../lib/types.ts";
 
-export const Pastes = async (context: Context) => {
+export const Random = async (context: Context) => {
   try {
     const entries = await readPastes();
 
-    const pastes = entries.map((item) => {
-      return (item.value as Paste).id;
-    });
+    const key = Math.floor(Math.random() * entries.length);
+    const item = entries[key].value as Paste;
 
     context.response.status = 200;
     context.response.body = {
       status: "success",
-      pastes,
+      paste: item,
     };
     return;
   } finally {
     context.response.status = 500;
     context.response.body = {
       status: "error",
-      message: "Failed to get pastes",
+      message: "Failed to get random paste",
     };
   }
 };

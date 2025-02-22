@@ -1,6 +1,7 @@
 import { Context } from "@oak/oak";
 
 export const Home = (context: Context) => {
+  context.response.status = 200;
   context.response.body = {
     status: "success",
     title: "PasteAPI",
