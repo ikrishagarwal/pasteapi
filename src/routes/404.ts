@@ -1,4 +1,4 @@
-import { Context } from "@oak/oak";
+import type { Context } from "@oak/oak";
 
 export const Page404 = (context: Context) => {
   context.response.status = 404;

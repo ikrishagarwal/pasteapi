@@ -1,6 +1,6 @@
-import { Context } from "@oak/oak";
+import type { Context } from "@oak/oak";
 import { readPastes } from "../lib/database.ts";
-import { Paste } from "../lib/types.ts";
+import type { Paste } from "../lib/types.ts";
 import { log } from "../lib/logger.ts";
 
 export const Random = async (context: Context) => {

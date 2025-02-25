@@ -1,14 +1,19 @@
-import { DataBaseKeys, Paste } from "./types.ts";
+import { DataBaseKeys, type Paste } from "./types.ts";
 import { kv } from "../init.ts";
 
 export const createPaste = async (content: string) => {
   const id = crypto.randomUUID();
   const createdAt = new Date();
 
+  // add 7 days from now
+  const validTill = new Date();
+  validTill.setDate(validTill.getDate() + 7);
+
   const paste: Paste = {
     id,
     content,
     createdAt,
+    validTill,
   };
 
   const response = await kv.set([DataBaseKeys.PASTES, id], paste);
@@ -19,7 +24,7 @@ export const createPaste = async (content: string) => {
 
 export const readPastes = async () => {
   const entries = await Array.fromAsync(
-    kv.list({ prefix: [DataBaseKeys.PASTES] })
+    kv.list({ prefix: [DataBaseKeys.PASTES] }),
   );
 
   return entries || [];

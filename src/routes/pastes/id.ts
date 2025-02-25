@@ -1,9 +1,9 @@
-import { RouterContext } from "@oak/oak";
+import type { RouterContext } from "@oak/oak";
 import { readSinglePaste } from "../../lib/database.ts";
 import { log } from "../../lib/logger.ts";
 
 export const SinglePaste = async (
-  context: RouterContext<"/pastes/:id", PasteParams>
+  context: RouterContext<"/pastes/:id", PasteParams>,
 ) => {
   try {
     const id = context.params.id;

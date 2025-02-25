@@ -4,11 +4,13 @@
   "description": "An API based minimal replica of PasteBin",
   "main": "src/main.ts",
   "tasks": {
-    "dev": "deno run --allow-net --unstable-kv --allow-env --allow-read --allow-write --watch src/main.ts",
-    "start": "deno run --allow-net --unstable-kv --allow-env --allow-read --allow-write src/main.ts"
+    "dev": "deno run --allow-net --unstable-kv --allow-env --allow-read --allow-write --unstable-cron --watch src/main.ts",
+    "start": "deno run --allow-net --unstable-kv --allow-env --allow-read --allow-write --unstable-cron src/main.ts",
+    "check": "deno fmt && deno lint && deno check **/*.ts"
   },
   "imports": {
     "@oak/oak": "jsr:@oak/oak@^17.1.4",
     "@std/dotenv": "jsr:@std/dotenv@^0.225.3"
-  }
+  },
+  "exports": "./src/main.ts"
 }
