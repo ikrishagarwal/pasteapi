@@ -18,7 +18,7 @@ export const Home = (context: Context) => {
       "GET /pastes - Lists all pastes",
       "GET /pastes/random - Shows a random paste",
       "GET /pastes/:id - Shows a paste with the given id",
-      "POST /paste - Creates a new paste",
+      "POST /paste - Creates a new paste - Request Body: `{ content: string }`",
     ],
     authors: {
       name: "Krish",
