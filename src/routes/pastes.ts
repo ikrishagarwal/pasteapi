@@ -1,6 +1,6 @@
 import type { Context } from "@oak/oak";
-import { readPastes } from "../lib/database.ts";
-import type { Paste } from "../lib/types.ts";
+import { readPastes } from "#lib/database.ts";
+import type { Paste } from "#lib/types.ts";
 
 export const Pastes = async (context: Context) => {
   try {

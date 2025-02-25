@@ -1,7 +1,7 @@
-import { PERMANENT_PASTE_IDS } from "../constants.ts";
-import { kv } from "../init.ts";
-import { readPastes } from "../lib/database.ts";
-import { DataBaseKeys, type Paste } from "../lib/types.ts";
+import { PERMANENT_PASTE_IDS } from "#src/constants.ts";
+import { kv } from "#src/init.ts";
+import { readPastes } from "#lib/database.ts";
+import { DataBaseKeys, type Paste } from "#lib/types.ts";
 
 Deno.cron("Run every 12 hours", { hour: { every: 12 } }, async () => {
   const entries = await readPastes();

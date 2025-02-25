@@ -1,5 +1,5 @@
-import { DataBaseKeys, type Paste } from "./types.ts";
-import { kv } from "../init.ts";
+import { DataBaseKeys, type Paste } from "#lib/types.ts";
+import { kv } from "#src/init.ts";
 
 export const createPaste = async (content: string) => {
   const id = crypto.randomUUID();
@@ -24,7 +24,7 @@ export const createPaste = async (content: string) => {
 
 export const readPastes = async () => {
   const entries = await Array.fromAsync(
-    kv.list({ prefix: [DataBaseKeys.PASTES] }),
+    kv.list({ prefix: [DataBaseKeys.PASTES] })
   );
 
   return entries || [];

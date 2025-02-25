@@ -10,7 +10,11 @@
   },
   "imports": {
     "@oak/oak": "jsr:@oak/oak@^17.1.4",
-    "@std/dotenv": "jsr:@std/dotenv@^0.225.3"
+    "@std/dotenv": "jsr:@std/dotenv@^0.225.3",
+    "#src/": "./src/",
+    "#lib/": "./src/lib/",
+    "#routes/": "./src/routes/",
+    "#crons/": "./src/crons/"
   },
   "exports": "./src/main.ts"
 }

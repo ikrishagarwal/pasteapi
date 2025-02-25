@@ -1,6 +1,6 @@
 import type { Context } from "@oak/oak";
-import { createPaste } from "../lib/database.ts";
-import { log } from "../lib/logger.ts";
+import { createPaste } from "#lib/database.ts";
+import { log } from "#lib/logger.ts";
 
 export const Paste = async (context: Context) => {
   try {
